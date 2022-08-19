@@ -1,0 +1,383 @@
+body {
+  background: #f2f2f2;
+  font-family: Poppins,Helvetica,Arial,sans-serif,'Open Sans';
+  margin: 0;
+  padding: 0;
+}
+/*---------------*/
+.header {
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 2px 170px;
+  box-shadow: 1px 1.732px 10px 0px rgb(0 0 0 / 6%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; 
+  position: sticky;
+	top: 0;
+	z-index: 100;
+}
+.header-right{
+ /* padding:10px;
+  float:right;
+  display: inline-flex;*/
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 10%;
+  transform: translate(100%,0);
+} 
+.header-user-icon img{
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+} 
+.header-user-icon{
+  margin-left: 30px;
+}
+.online{
+  position: relative;
+}
+.online::after{
+  content:'';
+  width: 7px;
+  height: 7px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #41db51;
+  position: absolute;
+  top:0;
+  right:0;
+}
+.search-box{
+  background: #efefef;
+  width: 350px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}      
+.search-box img {
+  width: 18px;
+}
+.search-box input{
+  width: 100%;
+  background: transparent;
+  padding: 10px;
+  outline: none;
+  border: 0;
+}
+.container{
+	display: flex;
+	justify-content: space-between;
+	padding: 13px 5%;
+}
+.left-sidebar{
+	flex-basis: 25%;
+	position: sticky;
+	top: 70px;
+	align-self: flex-start;
+}
+.right-sidebar{
+	flex-basis: 25%;
+	position: sticky;
+	top: 70px;
+	align-self: flex-start;
+  padding:20px;
+	border-radius: 4px;
+	/* background: var(--bg-color);
+	
+	color:#626262; */
+}
+.main-content{
+	width: 47%;
+}
+.imp-links a{
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
+	color: #685858;
+	width: fit-content;
+}
+.imp-links{
+  padding-top: 20px;
+	border-bottom: 1px solid #ccc;
+ /* background: white;*/
+  border-radius: 10px;
+}
+.post-container{
+	width: 90%;
+	background:#fff;
+	border-radius: 6px;
+	padding: 20px;
+	color:#626262;
+	margin:20px 0px;
+}
+.user-profile span{
+	font-size: 13px;
+	color:#9a9a9a;
+}
+.user-profile{
+	display: flex;
+	align-items: center;
+}
+.user-profile img{
+	width:45px;
+	border-radius: 50%;
+	margin-right:10px;
+}
+.user-profile p{
+	margin-bottom: 5px;
+	font-weight: 500;
+	color:#626262;
+}
+.user-profile small{
+	font-size: 12px;
+}
+.post-text{
+	color:#9a9a9a;
+	margin:15px 0;
+	font-size: 15px;
+}
+.post-text span{
+	color:#626262;
+	font-weight: 500;
+}
+.post-text a{
+	color:#1876f2;
+	text-decoration: none;
+}
+.post-img{
+	width: 100%;
+	border-radius: 4px;
+	margin-bottom: 5px;
+}
+.post-row{
+	margin-top:10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.activity-icons div img{
+
+	width:18px;
+	margin-right:10px;
+}
+.activity-icons div{
+	display: inline-flex;
+	align-items: center;
+	margin-right:30px;
+}
+.post-profile-icon{
+	display: flex;
+	align-items: center;
+}
+.post-profile-icon img{
+	width: 20px;
+	border-radius: 50%;
+	margin-right:5px;
+}
+.post-row a{
+	color:#9a9a9a;
+}
+
+
+
+
+p {
+  color: #77838f;
+  line-height: 1.7;
+}        
+.h4, .h5, .h6, h4, h5, h6 {
+  font-weight: 500;
+}
+
+/*button*/
+.button{
+  display: inline-flex;
+  height: 50px;
+  padding: 0;
+  background: #00A885;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: Quicksand , sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  align-self: center;
+}
+.button:hover{
+  background: #049477;
+} 
+.button:active{
+  background: #159c81;
+}
+.button__text,
+.button__icon{
+  display: inline-flex;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  height: 100%;
+}
+.button__icon{
+  font-size: 1.5em;
+  background: rgba(0,0,0,0.8);
+}
+/*end of button code*/
+
+/*Create grid*/
+/* .container{
+    background-color: #f2f2f2;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 80% 20%;
+    grid-template-areas: "leftbar content rightbar" "footer footer footer";
+}
+.web{
+  background: #f2f2f2;
+}
+.left_bar{
+  grid-area: leftbar;
+}
+.content{
+  grid-area: content;
+}
+.right_bar{
+  grid-area: rightbar;
+}
+.footer{
+  grid-area: footer;
+}
+/*end of grid*/
+
+.right_bar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 20px;
+} */
+.web{
+  padding: 20px;
+}
+
+/*scrollbar*/
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: gray;
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(161, 152, 152);
+}
+/*end of scrollbar*/
+
+/*Search bar*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  /*top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
+  padding:10px;
+  float:right;
+  position: fixed;
+   top: 0;
+   right: 0;
+}
+.my_profile img{
+  width: 40px;
+  height: 40px;
+  color: red;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+/*Search bar end*/
