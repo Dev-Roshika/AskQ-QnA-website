@@ -46,10 +46,11 @@ $rows_r = mysqli_fetch_assoc($result_r)
                 <img src="../img/search.png" >
                 <input type="text" placeholder="Search">
             </div>
-            <div class="header-user-icon online">
-                <img src="../upload/<?php echo $rows_r['img_url']; ?>" style='width:60px';>
+            <!-- <div class="header-user-icon online"> -->
+            <div class="header-user-icon img">
+                <img src="../upload/<?php echo $rows_r['img_url']; ?>" ;>
             </div>
-            <div style="margin-left: 20px;">
+            <div style="margin-left: 20px;margin-right: -20px;">
                 <a href="../php/logout.php" class='button' style="text-decoration:none">
                     <span class="button__text">Logout</span>
                 </a>
@@ -75,8 +76,8 @@ $rows_r = mysqli_fetch_assoc($result_r)
         <!-- left-sidebar -->
         <div class="left-sidebar">
             <div class="imp-links">
-                <a href="#">About us</a>
-                <a href="#">Setting</a>
+                <a href="aboutUs.php">About us</a>
+                <a href="setting.php">Setting</a>
             </div>
         </div>
         <!-- main-content -->
