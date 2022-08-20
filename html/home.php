@@ -7,6 +7,12 @@ include "../php/connection.php";
 $sql = "SELECT * FROM add_question ORDER BY id ASC";
 $read_ques = mysqli_query($conn, $sql);
 
+$email =  $_SESSION['login_email'] ;
+
+$sqlone = "SELECT * FROM users where email='$email'";
+$result_r = mysqli_query($conn, $sqlone);
+$rows_r = mysqli_fetch_assoc($result_r)
+
 ?>
 
 <!DOCTYPE html>
@@ -34,14 +40,14 @@ $read_ques = mysqli_query($conn, $sql);
             </div> 
          </div>-->
          <!-- <i class="fa fa-search"></i> -->
-         
+
          <div class="header-right">
             <div class="search-box">
                 <img src="../img/search.png" >
                 <input type="text" placeholder="Search">
             </div>
             <div class="header-user-icon online">
-                <img src="../img/member-2.png" >
+                <img src="../upload/<?php echo $rows_r['img_url']; ?>" style='width:60px';>
             </div>
             <div style="margin-left: 20px;">
                 <a href="../php/logout.php" class='button' style="text-decoration:none">
@@ -85,7 +91,7 @@ $read_ques = mysqli_query($conn, $sql);
             <div class="post-container">
                 <div class="post-row">
                     <div class="user-profile">
-                        <img src="../img/member-2.png">
+                        <img src="../upload/<?php echo $rows['img'] ?>">
                         <div>
                             <p><?php echo $rows['name'] ?></p>
                             <span><?php echo $rows['date'] ?></span>
@@ -109,18 +115,15 @@ $read_ques = mysqli_query($conn, $sql);
                         <div>
                             <a href="comment.php?id=<?php echo $id ?>" style='text-decoration: none;'>
                             <img src="../img/comments.png"></a>
-                            <span>19</span>
-                            
-                            
+                            <span>
+                                <?php 
+                                    $sqltwo = "SELECT * FROM answers where ques_id=$id";
+                                    $read_ques_amount = mysqli_query($conn, $sqltwo);
+                                    $num = mysqli_num_rows($read_ques_amount);
+                                    echo $num;
+                                ?>
+                            </span>    
                         </div>
-                        <div>
-                            <img src="../img/share.png">
-                            120
-                        </div>
-                    </div>
-                    <div class="post-profile-icon">
-                        <img src="../img/member-2.png">
-                        <i class="fas fa fa-caret-down"></i>
                     </div>
                 </div>
             </div>

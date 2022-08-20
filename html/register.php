@@ -18,15 +18,20 @@
     <div class="header">
         <img src="../img/AskQ-Logo.png" alt="logo" height="70px">
         <div class="header-right">
-            <a href = "../index.php"><button type="button" class="btn btn-outline-info" id="Login_Button_r">Log
+            <a href="../index.php"><button type="button" class="btn btn-outline-info" id="Login_Button1">Log
                 in</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href = "register.php"><button type="button" class="btn btn-outline-info" id="Register_Button_r">Register</button></a>
+            <button type="button" class="btn btn-outline-info" id="Register_Button">Register</button>
         </div>
     </div>
     <!--Header end-->
 
     <!--Form-->
-    <form class="signup-form" action="../php/reg.php" method="post">
+    <form class="signup-form" action="../php/reg.php" method="post" autocomplete="off" enctype="multipart/form-data">
+    <?php if(isset($_GET['error'])){  ?>
+    <div class="alert alert-danger" style='text-align:center;'>
+        <strong>Danger!</strong> <?php  echo $_GET['error']; ?>
+    </div>
+    <?php } ?>
         <!-- form header -->
         <div class="form-header">
             <h2 class="title">Sign Up!</h2>
@@ -95,7 +100,7 @@
             <div class="horizontal-group">
                 <div class="form-group right">
                     <label for="choose-file" class="label-title">Upload Profile Picture</label>
-                    <input type="file" id="choose-file" size="80">
+                    <input type="file" id="image1" size="80" name="image1" accept=".jpg, .jpeg, .png">
                 </div>
                 <div class="form-group left">
                     <label class="label-title">Gender:</label>
@@ -197,6 +202,7 @@
     <!--Js-->
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js'></script>
+    <script src="./script.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/registerjs.js"></script>
     <!--Some of code from https://softauthor.com/registration-form-design-in-html-css-with-code/-->

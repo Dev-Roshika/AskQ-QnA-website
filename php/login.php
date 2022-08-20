@@ -18,6 +18,7 @@ if (isset($_POST['sign_in'])) {
 	if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['login_email'] = $row['email'];
+		$_SESSION['image_url'] = $row['img_url'];
 		$_SESSION['name'] = $row['firstname']." ".$row['lastname'];
 		header("Location: ../html/home.php");
 		

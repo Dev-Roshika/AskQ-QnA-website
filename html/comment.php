@@ -4,15 +4,15 @@ session_start();
 
 include "../php/connection.php";
 
-$sql = "SELECT * FROM add_question ORDER BY id ASC";
-$read_ques = mysqli_query($conn, $sql);
-$rows = mysqli_fetch_assoc($read_ques);
-
 $ques_id = 0;
 
 if(isset($_GET['id'])){
     $ques_id = $_GET['id'];
 }
+
+$sql = "SELECT * FROM add_question where id=$ques_id";
+$read_ques = mysqli_query($conn, $sql);
+$rows = mysqli_fetch_assoc($read_ques);
 
 $sql1 = "SELECT * FROM answers where ques_id=$ques_id";
 $ans_ques = mysqli_query($conn, $sql1);
@@ -65,7 +65,7 @@ $ans_ques = mysqli_query($conn, $sql1);
         <div class="post-container">
             <div class="post-row">
                 <div class="user-profile">
-                    <img src="../img/member-2.png">
+                    <img src="../upload/<?php echo $rows['img'] ?>">
                     <div>
                         <p>
                             <?php echo $rows['name'] ?>
@@ -95,7 +95,7 @@ $ans_ques = mysqli_query($conn, $sql1);
             <div class="post-container">
                 <div class="post-row">
                     <div class="user-profile">
-                        <img src="../img/member-2.png">
+                        <img src="../upload/<?php echo $data_rows['img_url'] ?>">
                         <div>
                             <p><?php echo $data_rows['name'] ?></p>
                             <span><?php echo $data_rows['da_time'] ?></span>

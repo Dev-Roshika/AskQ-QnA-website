@@ -26,7 +26,7 @@ if (isset($_SESSION['login_email'])) {
   <img src="img/AskQ-Logo.png" alt="logo" height="70px">
   <div class="header-right">
       <button type="button" class="btn btn-outline-info" id = "Login_Button">Log in</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="html/register.php"><button type="button" class="btn btn-outline-info" id = "Register_Button">Register</button></a>
+      <a href="html/register.php" style='text-decoration:none;'><button type="button" class="btn btn-outline-info" id = "Register_Button">Register</button></a>
   </div>
 </div>
 <!--Header end-->

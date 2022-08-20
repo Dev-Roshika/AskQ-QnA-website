@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 if (isset($_POST['add_question'])) {
 	include "connection.php";
 	function validate($data){
@@ -16,6 +18,7 @@ if (isset($_POST['add_question'])) {
     $user_read = mysqli_query($conn, $sql1);
     $row = mysqli_fetch_assoc($user_read);
     $name = $row['firstname']." ".$row['lastname'];
+    $img = $_SESSION['image_url'];
 
 	if (empty($name)) {
 		header("Location: ../html/AskQ.php?error=empy name");
@@ -25,7 +28,7 @@ if (isset($_POST['add_question'])) {
 		header("Location: ../html/AskQ.php?error=empy time");
     }else {
 
-       $sql = "INSERT INTO add_question(name,date,question) VALUES('$name', '$da_time','$ques')";
+       $sql = "INSERT INTO add_question(name,img,date,question) VALUES('$name','$img','$da_time','$ques')";
        $result = mysqli_query($conn, $sql);
        if (!$result) {
             echo '<script type="text/javascript">';

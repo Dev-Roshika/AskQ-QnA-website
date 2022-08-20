@@ -20,9 +20,10 @@ if (isset($_POST['answer_submit'])) {
     $user_read = mysqli_query($conn, $sql1);
     $row = mysqli_fetch_assoc($user_read);
     $name = $row['firstname']." ".$row['lastname'];
+    $img = $_SESSION['image_url'];
 
     if(!empty($answer)){
-        $sql = "INSERT INTO answers(ques_id,name,da_time,answer) VALUES('$ques_id', '$name','$date_time','$answer')";
+        $sql = "INSERT INTO answers(ques_id,name,img_url,da_time,answer) VALUES('$ques_id', '$name','$img','$date_time','$answer')";
     $result = mysqli_query($conn, $sql);
        if (!$result) {
             echo '<script type="text/javascript">';

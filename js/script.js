@@ -58,6 +58,7 @@ document.getElementById("Login").onclick = function () {
 document.getElementById("AskQ").onclick = function () {
   location.href = "AskQ.php";
 };
+
 document.getElementById("cancle1").onclick = function () {
   location.href = "home.php";
 };
