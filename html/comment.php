@@ -49,7 +49,7 @@ $ans_ques = mysqli_query($conn, $sql1);
             location.href = "home.php";
         };
     </script>
-    <title>AskQ | Register</title>
+    <title>AskQ | Comment</title>
 </head>
 
 <body>
