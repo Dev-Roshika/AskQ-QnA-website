@@ -58,7 +58,6 @@ body {
   .form-group{
     margin-bottom:20px;
   }
-  
   .form-body .label-title {
     color:#1BBA93;
     font-size: 17px;
@@ -147,7 +146,7 @@ body {
 .dropdown{
   font-size: 17px;
   box-sizing: border-box;
-  width: 27%;
+  width: 30%;
   height: 34px;
   padding-left: 10px;
   padding-right: 10px;

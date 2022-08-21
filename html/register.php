@@ -16,7 +16,7 @@
 <body>
     <!--Header-->
     <div class="header">
-        <img src="../img/AskQ-Logo.png" alt="logo" height="70px">
+    <a href="home.php"><img src="../img/AskQ-Logo.png" alt="logo" height="70px"></a>
         <div class="header-right">
             <a href="../index.php"><button type="button" class="btn btn-outline-info" id="Login_Button1">Log
                 in</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -105,7 +105,7 @@
                 <div class="form-group left">
                     <label class="label-title">Gender:</label>
                     <div class="input-group">
-                        <select name="gender" id="id_uoj_stu_or_not" class="dropdown">
+                        <select name="gender" id="id_uoj_stu_or_not" class="dropdown"  style = "width:43%;">
                             <option>--Select--</option>
                             <option>Male</option>
                             <option>Female</option>
@@ -118,7 +118,7 @@
             <div class="form-group">
                 <label for="uoj_stu_or_not" class="label-title">Are you student of university of
                     Jaffna?</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                <select name="j_yesno" id="id_uoj_stu_or_not" class="dropdown">
+                <select name="j_yesno" id="id_uoj_stu_or_not" class="dropdown" style = "width:20%;" >
                     <option>--Select--</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -141,7 +141,7 @@
 
             <div class="form-group">
                 <label for="year_of_study" class="label-title">Year of Study</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                <select name="yearofstudy" id="id_year_of_study" class="dropdown">
+                <select name="yearofstudy" id="id_year_of_study" class="dropdown"  style = "width:43%;">
                     <option value="">--Select--</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
