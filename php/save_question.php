@@ -17,7 +17,7 @@ if (isset($_POST['add_question'])) {
     $sql1 = "SELECT * FROM users ORDER BY id ASC";
     $user_read = mysqli_query($conn, $sql1);
     $row = mysqli_fetch_assoc($user_read);
-    $name = $row['firstname']." ".$row['lastname'];
+    $name = $_SESSION['name'];
     $img = $_SESSION['image_url'];
 
 	if (empty($name)) {

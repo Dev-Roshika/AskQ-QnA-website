@@ -31,7 +31,7 @@ if(isset($_GET['name'])){
     </style>
     <script>
         document.getElementById("addQuestion").onclick = function () {
-        location.href = "home.html";
+        location.href = "home.php";
         };
     </script>
     <title>AskQ | Register</title>

@@ -196,6 +196,7 @@
 								</label>
 							</div>
 						</div>
+						<br>
 						<div>
 							<button class="btn btn-outline-success">Update</button>
 							<button class="btn btn-light">Cancel</button>

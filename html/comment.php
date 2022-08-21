@@ -43,10 +43,10 @@ $ans_ques = mysqli_query($conn, $sql1);
     </style>
     <script>
         document.getElementById("addQuestion").onclick = function () {
-            location.href = "home.html";
+            location.href = "home.php";
         };
         document.getElementById("cancle").onclick = function () {
-            location.href = "home.html";
+            location.href = "home.php";
         };
     </script>
     <title>AskQ | Register</title>
@@ -55,7 +55,7 @@ $ans_ques = mysqli_query($conn, $sql1);
 <body>
     <!--Header-->
     <div class="header">
-        <a href="home.html"><img src="../img/AskQ-Logo.png" alt="logo" height="70px"></a>
+        <a href="home.php"><img src="../img/AskQ-Logo.png" alt="logo" height="70px"></a>
         <div class="header-right">
         </div>
     </div>
@@ -84,6 +84,7 @@ $ans_ques = mysqli_query($conn, $sql1);
                 <?php echo $rows['question'] ?>
             </p>
         </div>
+
         <div class="post-answers">
             <hr>
             <?php if (mysqli_num_rows($ans_ques)) { ?>
