@@ -99,8 +99,9 @@
             <!-- Profile picture and gender -->
             <div class="horizontal-group">
                 <div class="form-group right">
-                    <label for="choose-file" class="label-title">Upload Profile Picture</label>
-                    <input type="file" id="image1" size="80" name="image1" accept=".jpg, .jpeg, .png">
+                    <label for="choose-file" class="label-title">Upload Profile Picture<span
+                            class="required-field"></span></label>
+                    <input type="file" id="image1" size="80" name="image1" accept=".jpg, .jpeg, .png" required>
                 </div>
                 <div class="form-group left">
                     <label class="label-title">Gender:</label>

@@ -60,16 +60,33 @@ if (isset($_POST['sign_up'])) {
 					VALUES ('$firstname', '$lastname','$newImageName','$email', '$password', '$pnumber', '$age', '$gender', '$j_yesno'
                     , '$facultyname', '$departmentname', '$yearofstudy', '$year', '$profession', '$name_faculty')";
 			$result = mysqli_query($conn, $sql);
-			if ($result) {
-				echo "<script>alert('Wow! User Registration Completed.')</script>";
+			if ($result) {?>
+				<!-- echo "<script>alert('Wow! User Registration Completed.')</script>";
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
-                header("Location: ../index.php");
+                header("Location: ../index.php"); -->
+				
+				<script type="text/javascript">
+				alert('Wow! User Registration Completed.');
+				window.location.href="../index.php";
+				</script>
+				<?php
 			} else {
-				echo "<script>alert('Woops! Something Wrong Went.')</script>";
+				// echo "<script>alert('Woops! Something Wrong Went.')</script>";
+				?>
+			<script type="text/javascript">
+				alert('Wow! User Registration Completed.');
+				window.location.href="../index.php";
+				</script>
+				<?php
 			}
 		} else {
-			echo "<script>alert('Woops! Email Already Exists.')</script>";
+			// echo "<script>alert('Woops! Email Already Exists.')</script>";?>
+			<script type="text/javascript">
+				alert('Wow! User Registration Completed.');
+				window.location.href="../index.php";
+				</script>
+				<?php
 		}
 		
 	} else {
