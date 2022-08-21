@@ -8,8 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/aboutUsStyle.css">
+	<link rel="stylesheet" href="../css/registerStyle.css">
+
 </head>
 <body>
+		<div class="header">
+    		<a href="home.php"><img src="../img/AskQ-Logo.png" alt="logo" height="70px"></a>
+        	<div class="header-right">
+            <!-- <button type="button" class="btn btn-outline-info" id = "Login_Button">Log in</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-info" id = "Register_Button">Register</button> -->
+        </div>
+    </div>
 	<section class="py-5 my-5">
 		<div class="container">
 			<h1 class="mb-5" >About us</h1>

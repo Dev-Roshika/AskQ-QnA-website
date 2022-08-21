@@ -14,6 +14,8 @@
 			$pnumber = $row[6];
 			$age = $row[7];
 			$gender = $row[8];
+			$url = $row[3];
+			$pass = md5($row[5]);
 		}
 	}
 ?>
@@ -36,9 +38,10 @@
 				<div class="profile-tab-nav border-right">
 					<div class="p-4">
 						<div class="img-circle text-center mb-3">
-							<img src="../img/member-2.png" alt="Image" class="shadow">
+						<img src="../upload/<?php echo $url; ?>" class="shadow">
+							<!-- <img src="../img/member-2.png" alt="Image" class="shadow"> -->
 						</div>
-						<h4 class="text-center">John Nicholson</h4>
+						<h4 class="text-center"><?php echo $firstname." ".$lastname ?></h4>
 					</div>
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="background-color:#f6f7f9">
 						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
@@ -97,7 +100,16 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										  <label>Gender</label>
-										  <input type="text" name="gender" class="form-control" value="<?php echo $gender?>">
+										  <select name="gender" class="form-control">
+										  <option selected value="<?php echo $gender?>"><?php echo $gender?></option>
+										  <?php 
+										  	if($gender=='Male'){
+										  ?>
+											<option value="Female">Female</option>
+											<?php }else{ ?>
+											<option value="Male">Male</option>
+											<?php } ?>
+										  </select>
 									</div>
 								</div>
 							</div>
@@ -110,34 +122,34 @@
 
 					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
 						<h3 class="mb-4">Password Settings</h3>
-						<form action=""></form>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Old password</label>
-								  	<input type="password" class="form-control">
+						<form action="" method="post">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Old password</label>
+										<input type="password" name='oldpass' value="<?php echo $pass; ?>" class="form-control">
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>New password</label>
-								  	<input type="password" class="form-control">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>New password</label>
+										<input type="password" name="newpass" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Confirm new password</label>
+										<input type="password" name="conpass" class="form-control">
+									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Confirm new password</label>
-								  	<input type="password" class="form-control">
-								</div>
+							<div>
+								<input type="submit" name="update_p" value="Update" class="btn btn-outline-success"></input>
+								<input type="submit" name="cancle_p" value="Cancle" class="btn btn-light"></input>
 							</div>
-						</div>
-						<div>
-							<button class="btn btn-outline-success">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-						<!-- f -->
+						</form>
 					</div>
 				</div>
 			</div>
@@ -173,5 +185,34 @@
 		}
 	}
 
+	if (isset($_POST['cancle_p'])) {
+		echo "<script>window.location.href='../index.php';</script>";
+	} else if (isset($_POST['update_p'])) {
+		$oldpassword = $_POST['oldpass'];
+		$newpassword = $_POST['newpass'];
+		$conpassword = $_POST['conpass'];
+
+		if($newpassword==$conpassword){
+			$newpassword = md5($newpassword);
+			$query = "UPDATE users SET pass='$newpassword' WHERE email='$email'";
+
+			if ($conn -> query($query) === TRUE) {
+			echo "
+				<script>
+					alert ('User data updated.');
+					window.location.href='setting.php';
+				</script>";
+		} else {
+			echo 'error';
+		}
+		}else{
+			echo "
+				<script>
+					alert ('Password is not matched');
+					window.location.href='setting.php';
+				</script>";
+		}
+
+	}
 
 ?>
