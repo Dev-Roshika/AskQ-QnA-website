@@ -26,8 +26,6 @@ $rows_r = mysqli_fetch_assoc($result_r)
     <link rel="icon" href="../img/AskQ-Logo.png" size="128x128">
 </head>
 <body>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v14.0" nonce="yLe04A3Y"></script>
     <!--Header-->
     <div class="header">
         <a href="home.php"><img src="../img/AskQ-Logo.png" alt="logo" height="70px"></a>
@@ -51,7 +49,7 @@ $rows_r = mysqli_fetch_assoc($result_r)
             </div>
             <!-- <div class="header-user-icon online"> -->
             <div class="header-user-icon img">
-                <img src="../upload/<?php echo $rows_r['img_url']; ?>" ;>
+                <img src="../upload/<?php echo $rows_r['img_url']; ?>" >
             </div>
             <div style="margin-left: 20px;margin-right: -20px;">
                 <a href="../php/logout.php" class='button' style="text-decoration:none">
@@ -81,6 +79,7 @@ $rows_r = mysqli_fetch_assoc($result_r)
             <div class="imp-links">
                 <a href="aboutUs.php">About us</a>
                 <a href="setting.php">Setting</a>
+                <a href="../php/logout.php">Logout</a>
             </div>
         </div>
         <!-- main-content -->

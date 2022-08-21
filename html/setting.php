@@ -1,3 +1,22 @@
+<?php
+	include '../php/connection.php';
+	session_start();
+
+	$email = $_SESSION['login_email'];
+
+	$sql = "SELECT * FROM users WHERE email='$email'";
+	$result = $conn -> query($sql);
+
+	if ($result) {
+		while ($row = $result -> fetch_row()) {
+			$firstname = $row[1];
+			$lastname = $row[2];
+			$pnumber = $row[6];
+			$age = $row[7];
+			$gender = $row[8];
+		}
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,51 +62,55 @@
 				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
 					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
 						<h3 class="mb-4">Account Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>First Name</label>
-								  	<input type="text" class="form-control" value="">
+						<form action="" method="post">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										  <label>First Name</label>
+										  <input type="text" name="firstname" class="form-control" value="<?php echo $firstname?>">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										  <label>Last Name</label>
+										  <input type="text" name="lastname" class="form-control" value="<?php echo $lastname?>">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										  <label>Email</label>
+										  <input type="text" name="email" class="form-control" value="<?php echo $_SESSION['login_email']?>" readonly>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										  <label>Phone number</label>
+										  <input type="text" name="pnumber" class="form-control" value="<?php echo $pnumber?>">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										  <label>Age</label>
+										  <input type="text" name="age" class="form-control" value="<?php echo $age?>">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										  <label>Gender</label>
+										  <input type="text" name="gender" class="form-control" value="<?php echo $gender?>">
+									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Last Name</label>
-								  	<input type="text" class="form-control" value="">
-								</div>
+							<div>
+								<input type="submit" name="update" value="Update" class="btn btn-outline-success"></input>
+								<input type="submit" name="cancle" value="Cancle" class="btn btn-light"></input>
 							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Email</label>
-								  	<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Phone number</label>
-								  	<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Age</label>
-								  	<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Gender</label>
-								  	<input type="text" class="form-control" value="">
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-outline-success">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
+						</form>
 					</div>
+
 					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
 						<h3 class="mb-4">Password Settings</h3>
+						<form action=""></form>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
@@ -114,104 +137,41 @@
 							<button class="btn btn-outline-success">Update</button>
 							<button class="btn btn-light">Cancel</button>
 						</div>
-					</div>
-					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
-						<h3 class="mb-4">Security Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Login</label>
-								  	<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Two-factor auth</label>
-								  	<input type="text" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="recovery">
-										<label class="form-check-label" for="recovery">
-										Recovery
-										</label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<br>
-						<div>
-							<button class="btn btn-outline-success">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>
-					<!--<div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
-						<h3 class="mb-4">Application Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="app-check">
-										<label class="form-check-label" for="app-check">
-										App check
-										</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
-										<label class="form-check-label" for="defaultCheck2">
-										Lorem ipsum dolor sit.
-										</label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>-->
-					<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-						<h3 class="mb-4">Notification Settings</h3>
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="notification1">
-								<label class="form-check-label" for="notification1">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum accusantium accusamus, neque cupiditate quis
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="notification2" >
-								<label class="form-check-label" for="notification2">
-									hic nesciunt repellat perferendis voluptatum totam porro eligendi.
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="notification3" >
-								<label class="form-check-label" for="notification3">
-									commodi fugiat molestiae tempora corporis. Sed dignissimos suscipit
-								</label>
-							</div>
-						</div>
-						<br>
-						<div>
-							<button class="btn btn-outline-success">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
+						<!-- f -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+<?php
+	if (isset($_POST['cancle'])) {
+		echo "<script>window.location.href='../index.php';</script>";
+	} else if (isset($_POST['update'])) {
+		$firstname = $_POST['firstname'];
+		$lastname = $_POST['lastname'];
+		$pnumber = $_POST['pnumber'];
+		$age = $_POST['age'];
+		$gender = $_POST['gender'];
+
+		$query = "UPDATE users SET firstname='$firstname', lastname='$lastname', pnum='$pnumber', age='$age', gender='$gender' WHERE email='$email'";
+
+		if ($conn -> query($query) === TRUE) {
+			echo "
+				<script>
+					alert ('User data updated.');
+					window.location.href='setting.php';
+				</script>";
+		} else {
+			echo 'error';
+		}
+	}
+
+
+?>
