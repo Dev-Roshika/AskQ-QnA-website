@@ -40,7 +40,7 @@ if(isset($_GET['name'])){
 <body>
    <!--Header-->
     <div class="header">
-        <img src="../img/AskQ-Logo.png" alt="logo" height="70px">
+    <a href="home.php"><img src="../img/AskQ-Logo.png" alt="logo" height="70px"></a>
         <div class="header-right">
             <!-- <button type="button" class="btn btn-outline-info" id = "Login_Button">Log in</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" class="btn btn-outline-info" id = "Register_Button">Register</button> -->
