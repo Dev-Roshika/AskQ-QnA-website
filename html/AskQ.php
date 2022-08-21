@@ -34,7 +34,8 @@ if(isset($_GET['name'])){
         location.href = "home.php";
         };
     </script>
-    <title>AskQ | Register</title>
+    <title>AskQ | Ask Question</title>
+    <link rel="icon" href="../img/AskQ-Logo.png" size="128x128">
 </head>
 <body>
    <!--Header-->

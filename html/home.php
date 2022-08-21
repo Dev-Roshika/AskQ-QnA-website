@@ -23,11 +23,14 @@ $rows_r = mysqli_fetch_assoc($result_r)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/home.css">
     <title>AskQ | Home</title>
+    <link rel="icon" href="../img/AskQ-Logo.png" size="128x128">
 </head>
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v14.0" nonce="yLe04A3Y"></script>
     <!--Header-->
     <div class="header">
-        <img src="../img/AskQ-Logo.png" alt="logo" height="70px">
+        <a href="home.php"><img src="../img/AskQ-Logo.png" alt="logo" height="70px"></a>
         <!--<div class="wrap">
              <div class="search">
                <input type="text" class="searchTerm" placeholder="What are you looking for?">
@@ -92,7 +95,9 @@ $rows_r = mysqli_fetch_assoc($result_r)
             <div class="post-container">
                 <div class="post-row">
                     <div class="user-profile">
-                        <img src="../upload/<?php echo $rows['img'] ?>">
+                        <div class="profile-image-container">
+                            <img src="../upload/<?php echo $rows['img'] ?>">
+                        </div>
                         <div>
                             <p><?php echo $rows['name'] ?></p>
                             <span><?php echo $rows['date'] ?></span>
