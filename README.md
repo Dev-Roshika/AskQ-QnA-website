@@ -24,5 +24,12 @@ https://askq24x7.000webhostapp.com/
 ## Technologies
 
 ### Languages
+- JavaScript
+- HTML
+- CSS
+
 ### Databases
+- MySql
+
 ### Development Software
+- Vs Code
